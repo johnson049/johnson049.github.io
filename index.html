@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Madasu Johnson Babu | Embedded Systems Engineer & IoT Developer</title>
+<meta name="description" content="Portfolio of Madasu Johnson Babu, an Embedded Systems Engineer and IoT Developer working with ESP32, STM32, BLE and Wi-Fi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --foam:#F3FBFC; --shallow:#D6F1F5; --surf:#8FD3DE; --teal:#0E7C8F; --deep:#08324A; --sand:#F4E4C1;
+  --bg:var(--foam); --ink:#0B2F44; --muted:#46697A; --line:#BFE3E9; --card:#FFFFFF; --link:#0A6A7D;
+  --w1:#BFE9F0; --w2:#8FD3DE; --w3:#4FB4C6;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#06202F; --ink:#E4F6F9; --muted:#9CC3CE; --line:#154559; --card:#0B2C3E; --link:#6CD3E3;
+    --w1:#0C3A50; --w2:#0F5068; --w3:#13708A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#06202F; --ink:#E4F6F9; --muted:#9CC3CE; --line:#154559; --card:#0B2C3E; --link:#6CD3E3;
+  --w1:#0C3A50; --w2:#0F5068; --w3:#13708A; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:var(--link)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1.25rem}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--shallow) 0%,var(--bg) 100%);padding:1.25rem 0 0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero{background:linear-gradient(180deg,#0A3347,var(--bg))}}
+:root[data-theme="dark"] .hero{background:linear-gradient(180deg,#0A3347,var(--bg))}
+nav{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;justify-content:flex-end;font-weight:500;font-size:.95rem}
+nav a{text-decoration:none;color:var(--ink);padding:.25rem 0}
+nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.hero-body{padding:clamp(3rem,10vw,6.5rem) 0 clamp(7rem,16vw,11rem);animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(2.6rem,9vw,5.6rem);font-weight:700;letter-spacing:-.03em;max-width:12ch}
+.role{font-size:clamp(1.15rem,3vw,1.5rem);margin:1.1rem 0 .4rem;font-weight:600;color:var(--teal)}
+.tag{max-width:36rem;color:var(--muted);margin:.5rem 0 1.75rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.7rem 1.3rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--teal)}
+.btn.main{background:var(--teal);color:#fff}
+.btn.alt{color:var(--ink)}
+.btn:hover{background:var(--deep);border-color:var(--deep);color:#fff}
+.sea{position:absolute;left:0;right:0;bottom:-1px;height:clamp(90px,16vw,170px);pointer-events:none}
+.sea svg{position:absolute;bottom:0;left:0;width:200%;height:100%}
+.sea .l1{fill:var(--w1);animation:drift 22s linear infinite}
+.sea .l2{fill:var(--w2);animation:drift 15s linear infinite reverse;opacity:.75}
+.sea .l3{fill:var(--w3);animation:drift 10s linear infinite;opacity:.55}
+.sea .l4{fill:var(--bg)}
+@keyframes drift{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding:clamp(3rem,7vw,5rem) 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+h2{font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1.5rem}
+p{max-width:42rem;margin:0 0 1rem}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.25rem;margin-top:2rem}
+.facts div{border-left:4px solid var(--surf);padding-left:1rem}
+.facts b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.1rem}
+.facts span{color:var(--muted);font-size:.95rem}
+
+.proj{padding:1.6rem 0;border-top:1px solid var(--line);display:grid;gap:.5rem}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj.lead{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.6rem;margin-bottom:1.2rem}
+.proj h3{font-size:1.45rem}
+.proj p{margin:0;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0;padding:0;list-style:none}
+.chips li{background:var(--shallow);color:#0B3D52;border-radius:999px;padding:.15rem .7rem;font-size:.85rem;font-weight:500}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chips li{background:#11475C;color:#D7F3F8}}
+:root[data-theme="dark"] .chips li{background:#11475C;color:#D7F3F8}
+.proj a.go{font-weight:600;width:fit-content}
+.small-list{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:.9rem}
+.small-list li{padding-left:1rem;border-left:4px solid var(--sand)}
+.small-list b{font-family:"Bricolage Grotesque",sans-serif}
+.small-list span{display:block;color:var(--muted);font-size:.95rem}
+
+dl.skills{display:grid;grid-template-columns:minmax(9rem,12rem) 1fr;gap:.9rem 1.5rem;margin:0}
+dl.skills dt{font-family:"Bricolage Grotesque",sans-serif;font-weight:700}
+dl.skills dd{margin:0;color:var(--muted)}
+@media (max-width:34rem){dl.skills{grid-template-columns:1fr;gap:.1rem}dl.skills dd{margin-bottom:.9rem}}
+
+.tl{list-style:none;margin:0;padding:0 0 0 1.4rem;border-left:3px solid var(--surf)}
+.tl li{position:relative;margin-bottom:1.6rem}
+.tl li::before{content:"";position:absolute;left:calc(-1.4rem - 8px);top:.55rem;width:13px;height:13px;border-radius:50%;background:var(--teal);border:3px solid var(--bg)}
+.tl b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.15rem;display:block}
+.tl span{color:var(--muted);font-size:.95rem}
+.certs{margin:0;padding-left:1.2rem;max-width:42rem}
+.certs li{margin-bottom:.6rem}
+
+.contact{background:linear-gradient(180deg,var(--bg),var(--shallow))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .contact{background:linear-gradient(180deg,var(--bg),#0A3347)}}
+:root[data-theme="dark"] .contact{background:linear-gradient(180deg,var(--bg),#0A3347)}
+.links{display:grid;gap:.6rem;font-size:1.1rem;margin:0;padding:0;list-style:none}
+.links b{display:inline-block;min-width:6.5rem;font-family:"Bricolage Grotesque",sans-serif}
+footer{padding:1.5rem 0 2rem;text-align:center;color:var(--muted);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="hero-body">
+      <h1>Madasu Johnson Babu</h1>
+      <p class="role">Embedded Systems Engineer and IoT Developer</p>
+      <p class="tag">I build firmware and connected devices on ESP32, STM32 and Arduino, from sensors and servos to Wi-Fi, BLE and the cloud.</p>
+      <div class="btns">
+        <a class="btn main" href="https://drive.google.com/file/d/1CEOYUpNgLFFcfFhFlra1ajdxKystLqNT/view?usp=sharing" target="_blank" rel="noopener">View my resume</a>
+        <a class="btn alt" href="#projects">See my projects</a>
+      </div>
+    </div>
+  </div>
+  <div class="sea" aria-hidden="true">
+    <svg class="l1" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60C100 20 200 20 300 60S500 100 600 60S800 20 900 60S1100 100 1200 60V120H0Z"/></svg>
+    <svg class="l2" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 70C100 40 200 40 300 70S500 100 600 70S800 40 900 70S1100 100 1200 70V120H0Z"/></svg>
+    <svg class="l3" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 85C100 60 200 60 300 85S500 110 600 85S800 60 900 85S1100 110 1200 85V120H0Z"/></svg>
+    <svg class="l4" viewBox="0 0 1200 120" preserveAspectRatio="none" style="width:100%;height:26%"><rect width="1200" height="120"/></svg>
+  </div>
+</header>
+
+<main>
+<section id="about"><div class="wrap">
+  <h2>About me</h2>
+  <p>I’m an Embedded Systems Engineer with an M.Tech in Embedded Systems from NIELIT Calicut. I like projects where software meets real hardware: writing firmware, wiring up circuits, and making devices talk to each other reliably.</p>
+  <p>Lately I’ve worked on a configuration layer that works across Wi-Fi and BLE, a wireless camera gimbal, and a medicine reminder that reports to a Flutter dashboard. I’m looking for roles in embedded firmware, IoT systems and hardware-software integration.</p>
+  <div class="facts">
+    <div><b>M.Tech, Embedded Systems</b><span>NIELIT Calicut, CGPA 8.21</span></div>
+    <div><b>B.Tech, Electronics and Communication</b><span>Sri Vasavi Engineering College, CGPA 7.60</span></div>
+    <div><b>Currently learning</b><span>FreeRTOS and Linux device drivers</span></div>
+    <div><b>Open to</b><span>Open-source work, freelance projects, research and startup ideas</span></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+
+  <article class="proj lead">
+    <h3>Cross-Technology Interface for IoT Connectivity Stack</h3>
+    <p>A Unified Configuration Abstraction Layer (UCAL) that lets a host configure Wi-Fi and BLE devices through one interface, using a separate adapter for each technology. It includes firmware for profile generation, parameter management and packet encoding, with Protocol Buffers keeping messages compact and structured. I tested it in simulation and on hardware, measuring packet delivery ratio, round-trip time and reliability.</p>
+    <ul class="chips"><li>Embedded C</li><li>Python</li><li>Wi-Fi</li><li>BLE</li><li>Protocol Buffers</li><li>Linux</li></ul>
+  </article>
+
+  <article class="proj lead">
+    <h3>Wireless 3-Axis Camera Gimbal</h3>
+    <p>Two ESP32 boards, one as a joystick transmitter and one as the gimbal receiver, linked over ESP-NOW so no router is needed. Averaging and dead-zone filtering on the ADC input keep the servos steady, and PWM control drives yaw, pitch and roll with either positional or continuous-rotation servos. It runs from an 18650 Li-ion cell with TP4056 charging and protection.</p>
+    <ul class="chips"><li>ESP32</li><li>ESP-NOW</li><li>Embedded C</li><li>PWM</li><li>PCB design</li></ul>
+    <a class="go" href="https://github.com/johnson049/wireless-3-axis-camera-gimbal" target="_blank" rel="noopener">View the code on GitHub</a>
+  </article>
+
+  <article class="proj lead">
+    <h3>Smart Medicine Reminder and Monitoring System</h3>
+    <p>An ESP32 device with RTC-based multi-alarm scheduling, snooze, weekday selection and EEPROM storage. Reed sensors detect when a pill is taken, and adherence logs go to Supabase through REST APIs so a Flutter dashboard can show medication history and device status. A local LCD, buzzer and LEDs handle reminders on the device itself.</p>
+    <ul class="chips"><li>ESP32</li><li>DS3231 RTC</li><li>Supabase</li><li>Flutter</li><li>IoT</li></ul>
+  </article>
+
+  <article class="proj lead">
+    <h3>Siyonu Margam (సీయోను మార్గం)</h3>
+    <p>A Telugu Christian songs and worship app built with Flutter. It has song categories and albums, an audio player with queue, shuffle and repeat, a Telugu lyrics reader with transliteration and translation, 12 themes and offline downloads, backed by Supabase. The linked repository is a showcase with screenshots and design notes.</p>
+    <ul class="chips"><li>Flutter</li><li>Dart</li><li>Supabase</li><li>PostgreSQL</li></ul>
+    <a class="go" href="https://github.com/johnson049/siyonu-margam-showcase" target="_blank" rel="noopener">View the showcase on GitHub</a>
+  </article>
+
+  <ul class="small-list">
+    <li><b>RFID-Based Smart Door Access Control</b><span>ESP8266 and RC522 reader with servo-operated door and Blynk IoT monitoring.</span></li>
+    <li><b>IoT-Based Home Automation</b><span>ESP32 and relay modules for remote appliance control through Arduino Cloud.</span></li>
+    <li><b>Obstacle Avoiding Robot</b><span>Arduino robot using an ultrasonic sensor and servo for real-time navigation.</span></li>
+  </ul>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>Languages</dt><dd>C, Python, C++ (basic), Dart</dd>
+    <dt>Microcontrollers</dt><dd>STM32, ESP32, ESP8266, Arduino</dd>
+    <dt>Protocols</dt><dd>UART, I2C, SPI, BLE, Wi-Fi, HTTP, NFC, ESP-NOW</dd>
+    <dt>Embedded concepts</dt><dd>RTOS, GPIO, timers, PWM, interrupts, firmware development, Protocol Buffers, IoT</dd>
+    <dt>Tools</dt><dd>STM32CubeIDE, Keil uVision, Arduino IDE, VS Code, EasyEDA, Linux, Git, Flutter, Supabase</dd>
+  </dl>
+</div></section>
+
+<section id="journey"><div class="wrap">
+  <h2>Journey</h2>
+  <ol class="tl">
+    <li><b>M.Tech in Embedded Systems</b><span>NIELIT Calicut, 2024 to 2026</span></li>
+    <li><b>Intern, International IoT Communication Technologies</b><span>Worked on Wi-Fi and BLE embedded communication systems, and helped build and test protocol-based device configuration modules.</span></li>
+    <li><b>B.Tech in Electronics and Communication Engineering</b><span>Sri Vasavi Engineering College, 2020 to 2024</span></li>
+  </ol>
+  <h2 style="margin-top:2.5rem">Certifications</h2>
+  <ul class="certs">
+    <li>MOOC on ARM-Based SoC Design, NIELIT Calicut. Score 95/100, 75 hours, 2025.</li>
+    <li>IoT Skill Development Bootcamp, NIELIT Calicut, FutureSkills PRIME, May 2025.</li>
+    <li>Bootcamp on Artificial Intelligence, NIELIT Calicut, FutureSkills PRIME, May 2025.</li>
+    <li>Certified in 5G Technology, International IoT Communication Technologies GmbH, Germany.</li>
+  </ul>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let’s work together</h2>
+  <p>Have a role, a project or an idea involving embedded systems or IoT? Send me a message.</p>
+  <ul class="links">
+    <li><b>Email</b><a href="mailto:johnsonmadasu@gmail.com">johnsonmadasu@gmail.com</a></li>
+    <li><b>Phone</b><a href="tel:+919502764984">+91 95027 64984</a></li>
+    <li><b>LinkedIn</b><a href="https://linkedin.com/in/johnson-babu-madasu-75067b249" target="_blank" rel="noopener">johnson-babu-madasu</a></li>
+    <li><b>GitHub</b><a href="https://github.com/johnson049" target="_blank" rel="noopener">johnson049</a></li>
+    <li><b>Resume</b><a href="https://drive.google.com/file/d/1CEOYUpNgLFFcfFhFlra1ajdxKystLqNT/view?usp=sharing" target="_blank" rel="noopener">Open on Google Drive</a></li>
+  </ul>
+</div></section>
+</main>
+
+<footer>© 2026 Madasu Johnson Babu. Andhra Pradesh, India.</footer>
+</body>
+</html>
